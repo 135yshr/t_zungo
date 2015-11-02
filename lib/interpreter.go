@@ -9,12 +9,6 @@ import (
 	"strings"
 )
 
-const (
-	Tab   = '\t'
-	Space = ' '
-	Lf    = '\n'
-)
-
 type input_chars []byte
 
 var ichars *input_chars
@@ -30,7 +24,7 @@ func NewInterpreter(org string) *Interpreter {
 }
 
 func codeToBytes(text string) []byte {
-	f := NewFilter([]string{"食う", "寝る", "遊ぶ"})
+	f := NewFilter([]string{"東北", "ずんだ", "太もも"})
 	m := f.Filter(text)
 
 	keys := []int{}
@@ -42,12 +36,12 @@ func codeToBytes(text string) []byte {
 
 	for n, k := range keys {
 		switch m[k] {
-		case "食う":
-			src[n] = 'U'
-		case "遊ぶ":
-			src[n] = 'M'
-		case "寝る":
-			src[n] = 'R'
+		case "東北":
+			src[n] = 'Z'
+		case "ずんだ":
+			src[n] = 'N'
+		case "太もも":
+			src[n] = 'K'
 		}
 	}
 	return src[:]
