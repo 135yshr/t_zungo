@@ -2,7 +2,7 @@ t_zungo
 ========
 
 
-_東北ずん子にフォローしてもらったので記念に作ったプログラミング言語です_
+_[東北ずん子](https://twitter.com/t_zunko)にフォローしてもらったので記念に作ったプログラミング言語です_
 _t_zungoは、[whitespace](https://ja.wikipedia.org/wiki/Whitespace)をもとにしております。_
 
 [![Build Status](https://travis-ci.org/135yshr/t_zungo.png?branch=master)](https://travis-ci.org/135yshr/t_zungo)
