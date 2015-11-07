@@ -18,7 +18,7 @@ func TestInterpretor(t *testing.T) {
 	Describe(t, "初期化", func() {
 		Context("インスタンス生成を生成するとき", func() {
 			Before(func() {
-				text = "食う寝る遊ぶの3拍子"
+				text = "東北ずんだ太ももの3拍子"
 				sut2 = NewInterpreter(text)
 			})
 			It("nilにならないこと", func() {
@@ -30,59 +30,59 @@ func TestInterpretor(t *testing.T) {
 		})
 	})
 	Describe(t, "変換処理", func() {
-		Context("スペースを置き換えるとき", func() {
+		Context("東北を置き換えるとき", func() {
 			Before(func() {
-				data := "食う"
-				expected = []byte{'U'}
+				data := "東北"
+				expected = []byte{'Z'}
 				sut2 = NewInterpreter(data)
 				actual, err = sut2.toChar()
 			})
 			It("エラーが発生しないこと", func() {
 				Expect(err).To(NotExist)
 			})
-			It("Sが返ってくること", func() {
+			It("Zが返ってくること", func() {
 				Expect(actual).To(Equal, expected)
 			})
 		})
-		Context("タブを置き換えるとき", func() {
+		Context("ずんだを置き換えるとき", func() {
 			Before(func() {
-				data := "遊ぶ"
-				expected = []byte{'M'}
+				data := "ずんだ"
+				expected = []byte{'N'}
 				sut2 = NewInterpreter(data)
 				actual, err = sut2.toChar()
 			})
 			It("エラーが発生しないこと", func() {
 				Expect(err).To(NotExist)
 			})
-			It("Tが返ってくること", func() {
+			It("Nが返ってくること", func() {
 				Expect(actual).To(Equal, expected)
 			})
 		})
-		Context("改行(Lf)を置き換えるとき", func() {
+		Context("太ももを置き換えるとき", func() {
 			Before(func() {
-				data := "寝る"
-				expected = []byte{'R'}
+				data := "太もも"
+				expected = []byte{'K'}
 				sut2 = NewInterpreter(data)
 				actual, err = sut2.toChar()
 			})
 			It("エラーが発生しないこと", func() {
 				Expect(err).To(NotExist)
 			})
-			It("Lfが返ってくること", func() {
+			It("Kが返ってくること", func() {
 				Expect(actual).To(Equal, expected)
 			})
 		})
 		Context("変換対象に不要な文字が含まれているとき", func() {
 			Before(func() {
-				data := "食う寝る遊ぶの3拍子"
-				expected = []byte{'U', 'R', 'M'}
+				data := "東北ずんだ太ももの3拍子"
+				expected = []byte{'Z', 'N', 'K'}
 				sut2 = NewInterpreter(data)
 				actual, err = sut2.toChar()
 			})
 			It("エラーが発生しないこと", func() {
 				Expect(err).To(NotExist)
 			})
-			It("UMRが返ってくること", func() {
+			It("ZNKが返ってくること", func() {
 				Expect(actual).To(Equal, expected)
 			})
 		})
@@ -90,7 +90,7 @@ func TestInterpretor(t *testing.T) {
 	Describe(t, "コードを生成する", func() {
 		Context("スタックに0x41をpushするコマンドを生成するとき", func() {
 			Before(func() {
-				data := "食う食う食う遊ぶ食う食う食う食う食う遊ぶ寝る"
+				data := "東北東北東北東北太もも東北東北東北東北東北太ももずんだ"
 				sut2 = NewInterpreter(data)
 				err = sut2.toCode()
 			})
@@ -106,7 +106,7 @@ func TestInterpretor(t *testing.T) {
 		})
 		Context("スタックに0x43をpushするコマンドを生成するとき", func() {
 			Before(func() {
-				data := "食う食う食う遊ぶ食う食う食う食う遊ぶ遊ぶ寝る"
+				data := "東北東北東北太もも東北東北東北東北太もも太ももずんだ"
 				sut2 = NewInterpreter(data)
 				err = sut2.toCode()
 			})
@@ -122,7 +122,7 @@ func TestInterpretor(t *testing.T) {
 		})
 		Context("スタックに0x41をpushするコマンドを２つ生成するとき", func() {
 			Before(func() {
-				data := "食う, 食う, 食う, 遊ぶ, 食う, 食う, 食う, 食う, 食う, 遊ぶ, 寝る, 食う, 食う, 食う, 遊ぶ, 食う, 食う, 食う, 食う, 食う, 遊ぶ, 寝る"
+				data := "東北, 東北, 東北, 太もも, 東北, 東北, 東北, 東北, 東北, 太もも, ずんだ, 東北, 東北, 東北, 太もも, 東北, 東北, 東北, 東北, 東北, 太もも, ずんだ"
 				sut2 = NewInterpreter(data)
 				err = sut2.toCode()
 			})
@@ -143,12 +143,12 @@ func TestInterpretor(t *testing.T) {
 	Describe(t, "不要な文字をフィルタリングする", func() {
 		Context("不要な文字AとBと\rが含まれるとき", func() {
 			Before(func() {
-				data := "'A', 食う, 'B', 遊ぶ, '\r', 寝る"
+				data := "'A', 東北, 'B', 太もも, '\r', ずんだ"
 				sut2 = NewInterpreter(data)
 				sut2.filter()
 			})
 			It("AとBと\rが排除されていること", func() {
-				Expect(sut2.source).To(Equal, []byte{'U', 'M', 'R'})
+				Expect(sut2.source).To(Equal, []byte{'Z', 'K', 'N'})
 			})
 		})
 	})
