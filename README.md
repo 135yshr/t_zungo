@@ -7,6 +7,8 @@ _t_zungoは、[whitespace](https://ja.wikipedia.org/wiki/Whitespace)をもとに
 
 [![Build Status](https://travis-ci.org/135yshr/t_zungo.png?branch=master)](https://travis-ci.org/135yshr/t_zungo)
 
+![Alt 東北ずん子](http://zunko.jp/sozai/zunkosd_s/zzm_zundaaa_a.png)
+
 ## インストール
 
 ```
