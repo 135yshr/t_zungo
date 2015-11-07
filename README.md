@@ -25,11 +25,12 @@ t_zungo $GOPATH/src/github.com/135yshr/t_zungo/hello_world.znk
 
 ## 言語仕様
 
-_ただいま作成中_
+[リファレンスマニュアル](https://github.com/135yshr/t_zungo/blob/master/reference.md)を追加しました。
 
 ## Change history
 
-- relese version 1.0
+- release version 1.1 リファレンスマニュアルを追加
+- release version 1.0 新規リリース
 
 ## License
 Copyright &copy; 2015 [135yshr](https://github.com/135yshr)
