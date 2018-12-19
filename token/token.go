@@ -32,7 +32,10 @@ const (
 	RPAREN = ")"
 
 	// LBRACE is {
-	LBRACE = "LBRACE"
+	LBRACE = "{"
+
+	// RBRACE is {
+	RBRACE = "}"
 )
 
 // TokenType is token's type
