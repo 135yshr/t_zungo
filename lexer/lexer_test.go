@@ -47,7 +47,6 @@ func TestNextToken(t *testing.T) {
 			},
 		},
 		{
-			// name: "=+()を渡して解析できること",
 			name: "=+()を渡して解析できること",
 			args: args{
 				input: `=+()`,
@@ -58,6 +57,20 @@ func TestNextToken(t *testing.T) {
 				{token.LPAREN, "("},
 				{token.RPAREN, ")"},
 			},
+		},
+		{
+			name: "=+(){を渡して解析できること",
+			args: args{
+				input: `=+(){`,
+			},
+			want: []token.Token{
+				{token.ASSIGN, "="},
+				{token.PLUS, "+"},
+				{token.LPAREN, "("},
+				{token.RPAREN, ")"},
+				{token.LBRACE, "{"},
+			},
+			
 		},
 	}
 	for _, tt := range tests {
