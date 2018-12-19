@@ -24,6 +24,9 @@ const (
 
 	// SEMICOLON is ;
 	SEMICOLON = ";"
+
+	// LPAREN is ()
+	LPAREN = "("
 )
 
 // TokenType is token's type
