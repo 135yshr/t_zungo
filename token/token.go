@@ -7,8 +7,8 @@ const (
 	// EOF is end of file
 	EOF = "EOF"
 
-	// INDENT is indent
-	INDENT = ""
+	// IDENT is indent
+	IDENT = ""
 
 	// INT is int value
 	INT = "INT"
@@ -36,6 +36,12 @@ const (
 
 	// RBRACE is {
 	RBRACE = "}"
+
+	// FUNCTION is function
+	FUNCTION = "FUNCTION"
+
+	// LET is variable declaration
+	LET = "LET"
 )
 
 // TokenType is token's type
@@ -45,4 +51,17 @@ type TokenType string
 type Token struct {
 	Type    TokenType
 	Literal string
+}
+
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+// LookupIdent is refer to identifiers
+func LookupIdent(ident string) TokenType {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
 }
