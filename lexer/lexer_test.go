@@ -24,6 +24,17 @@ func TestNextToken(t *testing.T) {
 				{token.ASSIGN, "="},
 			},
 		},
+		{
+			// name: "=+(){},;を渡して解析できること",
+			name: "=+を渡して解析できること",
+			args: args{
+				input: `=+`,
+			},
+			want: []token.Token{
+				{token.ASSIGN, "="},
+				{token.PLUS, "+"},
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
