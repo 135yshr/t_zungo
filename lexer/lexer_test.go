@@ -60,6 +60,18 @@ func TestNextToken(t *testing.T) {
 			},
 		},
 		{
+			name: "9 != 10を渡して解析できること",
+			args: args{
+				input: `9 != 10`,
+			},
+			want: []token.Token{
+				{Type: token.INT, Literal: "9"},
+				{Type: token.NOT_EQ, Literal: "!="},
+				{Type: token.INT, Literal: "10"},
+				{Type: token.EOF, Literal: ""},
+			},
+		},
+		{
 			name: "sample コードを渡して解析できること",
 			args: args{
 				input: `let five = 5;

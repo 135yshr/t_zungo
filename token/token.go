@@ -78,6 +78,9 @@ const (
 
 	// EQ is equal declatation
 	EQ = "=="
+
+	// NOT_EQ is not equal declatation
+	NOT_EQ = "!="
 )
 
 // TokenType is token's type
