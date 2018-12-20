@@ -75,6 +75,9 @@ const (
 
 	// RETURN is return declatation
 	RETURN = "RETURN"
+
+	// EQ is equal declatation
+	EQ = "=="
 )
 
 // TokenType is token's type
