@@ -19,6 +19,9 @@ const (
 	// PLUS is +
 	PLUS = "+"
 
+	// MINUS is -
+	MINUS = "-"
+
 	// BANG is !
 	BANG = "!"
 
