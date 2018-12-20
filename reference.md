@@ -1,10 +1,8 @@
-    東北ずん子語リファレンスマニュアル
-==============================
+# 東北ずん子語リファレンスマニュアル
 
 t_zungoは、[東北]と[ずんだ]と[太もも]の３つの単語を使って処理を書くプログラミンング言語です。
 
-実例
-----
+## 実例
 
 [hello_world.znk](https://github.com/135yshr/t_zungo/blob/master/hello_world.znk)は、コンソール画面に`Hello, world!`と表示するサンプルプログラムです。
 
@@ -12,8 +10,8 @@ t_zungoは、[東北]と[ずんだ]と[太もも]の３つの単語を使って�
 ./zungo hello_world.znk
 ```
 
-文法
-----
+## 文法
+
 IMP (Instruction Modification Parameter)、コマンド、パラメータの3つ組で命令を表現します。
 
 | IMP | 対象 |
