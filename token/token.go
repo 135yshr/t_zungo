@@ -8,7 +8,7 @@ const (
 	EOF = "EOF"
 
 	// IDENT is indent
-	IDENT = ""
+	IDENT = "IDENT"
 
 	// INT is int value
 	INT = "INT"
