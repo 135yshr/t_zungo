@@ -34,6 +34,9 @@ const (
 	// LT is <
 	LT = "<"
 
+	// GT is >
+	GT = ">"
+
 	// COMMA is ,
 	COMMA = ","
 
@@ -57,6 +60,21 @@ const (
 
 	// LET is variable declaration
 	LET = "LET"
+
+	// TRUE is true declatration
+	TRUE = "TRUE"
+
+	// FALSE is false declatration
+	FALSE = "FALSE"
+
+	// IF is if declatation
+	IF = "IF"
+
+	// ELSE is else declatation
+	ELSE = "ELSE"
+
+	// RETURN is return declatation
+	RETURN = "RETURN"
 )
 
 // TokenType is token's type
@@ -69,8 +87,13 @@ type Token struct {
 }
 
 var keywords = map[string]TokenType{
-	"fn":  FUNCTION,
-	"let": LET,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
+	"true":   TRUE,
+	"false":  FALSE,
 }
 
 // LookupIdent is refer to identifiers
