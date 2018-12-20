@@ -25,6 +25,9 @@ const (
 	// BANG is !
 	BANG = "!"
 
+	// SLASH is !
+	SLASH = "/"
+
 	// COMMA is ,
 	COMMA = ","
 
