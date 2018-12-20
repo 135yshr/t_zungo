@@ -16,7 +16,7 @@ func TestNextToken(t *testing.T) {
 		want []token.Token
 	}{
 		{
-			name: "=+(){},;を渡して解析できること",
+			name: "=+x(){},;を渡して解析できること",
 			args: args{
 				input: `=+(){},;`,
 			},
@@ -30,6 +30,15 @@ func TestNextToken(t *testing.T) {
 				{Type: token.COMMA, Literal: ","},
 				{Type: token.SEMICOLON, Literal: ";"},
 				{Type: token.EOF, Literal: ""},
+			},
+		},
+		{
+			name: "!を渡して解析できること",
+			args: args{
+				input: `!`,
+			},
+			want: []token.Token{
+				{Type: token.BANG, Literal: "!"},
 			},
 		},
 		{
