@@ -31,6 +31,9 @@ const (
 	// SLASH is !
 	SLASH = "/"
 
+	// LT is <
+	LT = "<"
+
 	// COMMA is ,
 	COMMA = ","
 
