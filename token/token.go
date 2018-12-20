@@ -25,6 +25,9 @@ const (
 	// BANG is !
 	BANG = "!"
 
+	// ASTERISK is *
+	ASTERISK = "*"
+
 	// SLASH is !
 	SLASH = "/"
 

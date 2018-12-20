@@ -33,14 +33,16 @@ func TestNextToken(t *testing.T) {
 			},
 		},
 		{
-			name: "!-/を渡して解析できること",
+			name: "!-/*を渡して解析できること",
 			args: args{
-				input: `!-/`,
+				input: `!-/*`,
 			},
 			want: []token.Token{
 				{Type: token.BANG, Literal: "!"},
 				{Type: token.MINUS, Literal: "-"},
 				{Type: token.SLASH, Literal: "/"},
+				{Type: token.ASTERISK, Literal: "*"},
+				{Type: token.EOF, Literal: ""},
 			},
 		},
 		{
